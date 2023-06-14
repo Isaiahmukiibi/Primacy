@@ -1,0 +1,56 @@
+print('*'* 70)
+print('Wlecome to Primacy Bank ATM')
+print('*'* 70)
+restart = ('Y')
+Chances = 3
+balance = 67.00
+while Chances >=0:
+    pin = int(input('enter your 4 pin code: ' ))
+    if pin == (9090):
+        print("You entered your pin correctly\n")
+        while restart not in ('No','n','no','N'):
+            print("Press 1 for balance\n")
+            print("press 2 to withdraw\n")
+            print("press 3 to pay in\n")
+            print("press 4 to return card\n")
+            print('*'* 70)
+            option = int(input("what would like to chose? "))
+            if option == 1:
+                print('your balance is $ ',balance) 
+                restart = input('Do you wish to go back? ')
+                if restart in ('No','n','no','N'):
+                    print("Thank you")
+                    print('*'* 70)
+                    break
+            elif option == 2:
+                option2 = ('Y')
+                withdrawal = float(input('How much would you like to withdrawal?\n $10/$20/$30/$40/$50/$60/$70/$80/$90/$100: '))
+                if withdrawal in [ 10, 20, 30, 40, 50 , 60 , 70, 80, 90 ,100]:
+                    balance = balance-withdrawal
+                elif withdrawal !=[10, 20, 30, 40, 50 , 60 , 70, 80, 90 ,100]:
+                    print('invalid amount please re-try\n')
+                    restart = ('Y')
+                elif withdrawal == 1:
+                    withdrawal =float(input('Enter desired amount: '))
+            elif option == 3:
+                pay_in = float(input('How mauch would you like to pay in? '))
+                balance = balance + pay_in
+                print('\n Your new balance is $: ',balance)
+                restart = input('Would like to go back? ')
+                if restart in ('No','n','no','N'):
+                    print('Thank you')
+                    break
+                elif option == 4:
+                    print('Please wait for your card.......\n')
+                print('Thank you for your services')
+            else:
+                print('Please enter the correct amount? |\n')
+                restart = ('Y')
+    elif pin !=('9090'):
+        print('Incorrect password')
+        Chances = Chances -1
+        if Chances == 0:
+            print('\n No more tries')
+            break
+            
+
